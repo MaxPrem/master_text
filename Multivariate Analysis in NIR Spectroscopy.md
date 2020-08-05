@@ -4,24 +4,41 @@ pinned: true
 tags: [masterarbeit]
 title: Multivariate Analysis in NIR Spectroscopy
 created: '2020-06-09T09:39:07.203Z'
-modified: '2020-07-20T16:53:31.892Z'
+modified: '2020-08-04T15:51:35.361Z'
 ---
 
 # Multivariate Analysis in NIR Spectroscopy 
 
 # 1 Abstract
 
+### Background
+
+NIRs
+
+### Objectives
+Develop robust and interpretable ml pipeline.
+
+### Material
+nir spectra of 80 samples from luzerne 
+
+### Results and Conclusion
+
+
+
+----
 ### Summary NIR Chemometrics
 
 Near-infrared spectroscopy (NIRS) is a high-throughput, low-cost, solvent-free, and nondestructive analytical tool. 
 
 
-In Chemoetrics machinelearning and singal transformation methods are applied to process and correlate spectra (or other instrumental data) with measureable phisical properties and sample qualities, to gain insights and relevant information. 
+In Chemoetrics machinelearning and signal transformation methods are applied to process and correlate spectra (or other instrumental data) with measureable phisical properties and sample qualities, to gain insights and relevant information. 
 
 
 ## 1 Introduction
 
-The aim of my thesis is to develop state of the art workflows and tools for the analysis of NIR spectra at _ the institute of animal nutrtion_ - TTE Boku. The goal is to obtain robust regression models on __lab-meassurements vs. NIR spectra__,  to predict spectra of unknown samples confidently.
+The aim of my thesis is to develop state of the art workflows and tools for the analysis of NIR spectra for the institute of animal nutrtion - TTE Boku. 
+
+The goal is to obtain robust regression models on __lab-meassurements vs. NIR spectra__,  to predict spectra of unknown samples confidently.
 
 * Rashmon: the multiplicitoy of good models;
 * Occam: the conflict between simplicity and accuracy;
@@ -30,12 +47,13 @@ The aim of my thesis is to develop state of the art workflows and tools for the 
 
 Unfortonately, in prediction, accuracy and simplicity (interpretability are in conflict. 
 
-*the Occam Dilemma)accuray genreally requires more complex predictoin kethods. Simple and inerpretable fucntions do note make the most accuraet predictors.
+*the Occam Dilemma)accuray genreally requires more complex predictoin methods. Simple and inerpretable models do note make the most accuraet predictors.
 
-If the goad is interpretability, gaining information about the model , or accuracy on the relation between predictors and response variables.
+If the goal is interpretability, gaining information about the model , or accuracy on the relation between predictors and response variables.
 
 For this task two workflows were developed, 
-* a classical linear model approach using Partial Least Squares Regression!!! with preceding variable selection(regularized reg.) and spectral preprocessing,
+* a classical linear model approach combining regularized regression and dimension reductoin using ElasticNet and PartialLeastSquares regression with preceding variable selection(regularized reg.) and spectral preprocessing,
+
 * as well a nonlinear-regression model using Convolutional-Neural-Networks, a deep neural network architecture highly effective for analyzing visual data.
 
 * a data model approch combining regularized linear regression for variable selection and partial least square regression for dimension reduction on the selected wavelenghts to create a sparse model.
@@ -70,10 +88,9 @@ NIR spectroscopy found many applications in different fields
 
 
 
-* in biotechnology the use of  NIR spectra is investigated to montior media , metabolit content and biomass in fermentation processes.
- [Spectroscopy in Biotechnology Research and Development]
+* in biotechnology the use of  NIR spectra is investigated to montior media , metabolit content and biomass in fermentation processes [@Prakash2014].
 
-* in the medical field NIR is used to monitor....
+* in the medical field NIR is used for non invasive analysis like medical imaging to monitor brain function and other tissues. [@Sakudo2016]
 
 * __In the agrifood sector, the potential of NIRS have been widely investigated, this is a very powerful tool that provides meaningful information about internal and external properties of fruits, such as sugar content, total acidity, pH, soluble solid content, dry matter, firmness, and bruises, to mention some [36].__
 
@@ -94,25 +111,27 @@ __Because it is a comparative analytical method, NIRS is a secondary, or indirec
 
 <img src=@attachment/Clipboard_2020-06-11-19-27-46.png width = 500>
 
-_Figure 4. Scheme for the construction of a quantitative model._
+_Figure 4. Scheme for the construction of a quantitative model._ [@Lopez2017]
 
 
 ## NIR Spectra
 
 __In vibrational spectroscopy, near-infrared spectroscopy (NIRS) covers the transition from the visible spectral range to the mid-infrared region. The NIR spectral region ranges from 800 to 2500 nm (12,500–4000 cm−1) with absorptions representing overtones and combinations mainly associated with –CH, –OH, –NH, and –SH functional groups [1].__
 
+----
+The near infrared region is located in the electromagnetic spectrum limited by the visible and medium infrared light between the wavelengths 2500 and 800 nm and was also referred to earlier as the "Herschel region" after its discoverer (McClure 1994). In other studies, the NIR is defined as the part of the infrared spectral region that is permeable to quartz (Molt 1992). The spectral range is often given in the unit wave numbers, which is the reciprocal of the wavelength and at the same time represents the quotient of frequency and speed of light. Accordingly, the NIR lies
+-1 range between 12500 and 4000 cm.
 
-_[1] Ozaki Y. Near-infrared spectroscopy—its versatility in analytical chemistry. Analytical Sciences: the International Journal of the Japan Society for Analytical Chemistry. 2012;28:545–563. DOI: 10.2116/analsci.28.545._
+
+Absorption of electromagnetic radiation causes mechanical vibrations of the atoms in molecules. In the infrared range, fundamental vibrations of organic compounds are measured as valence vibrations (stretching vibrations) and deformation vibrations (bending vibrations). In the near infrared range are the combination and harmonics of these molecular vibrations (Figure 2.1.1), which consist of multiples or sums of the fundamental vibrations measured in the IR.
+The model of the harmonic and anharmonic oscillator, which is shown in Figure 2.1.2, is used to describe the molecular vibrations.
+----
+
+
 
 ![](@attachment/Clipboard_2020-06-09-12-17-28.png)
-
-### IR-Messbereiche
-• Nahes Infrarot (NIR): 15.000 cm-1 – 4000 cm-1
-„Obertöne“ 2. bzw. 3. Ordnung (schwach), niederenergetische d-d Übergänge
-• Mittleres Infrarot (MIR): 4000 cm-1 – 600 cm-1
-Streck- und Winkeldeformationsschwingungen von C-H, C-C und
-• Fernes Infrarot (FIR): 600 cm-1 – 10 cm-1
-Streck- und Winkeldeformationsschwingungen von Schweratomen, Gerüst-, Torsions- und Ringdeformationsschwingungen
+[@nirwhite]
+### Meassuremnt principl
 
 ### Measurement
 
@@ -124,12 +143,6 @@ Nir spectra can be obtained by meassuring in reflectance or transmittance mode, 
 
 
 ![](@attachment/Clipboard_2020-06-09-12-28-31.png)
+[@nirwhite]
 
-
-Measurements by NIRS procedures are sensitive to the physical properties of the sample which affect the transmission and reflectance of light. Included among these properties are the physical shape and grind size of the sample particles, independent of whether the means of sample presentation is a ring cup, optical quartz Petri dish, or a natural product cell that uses fresh, undried, unground samples. [Nirs White Paper]
-
-
-Sample preparation and presentation to the NIR instrument varies widely. Though dried, finely ground samples are often employed, whole grains or fresh, unground samples also can be scanned. Instruments can be stationary in a laboratory or mobile (e.g. on a silage chopper).
-[@Sapienza2008]
-
-
+Recording NIR spectra is fast an easy with modern instruments. Although the physical properties of the meassured sample like particle size or the surface of solids affect the scattering of the light beam. To obtain spectra of consistent quality it is best practice to standardise sample preparation procedures, like drying and grinding. [@nirwhite]

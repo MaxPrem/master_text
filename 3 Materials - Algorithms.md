@@ -3,10 +3,26 @@ attachments: [Clipboard_2020-06-23-14-14-50.png]
 tags: [masterarbeit]
 title: 3 Materials - Algorithms
 created: '2020-06-11T16:53:48.871Z'
-modified: '2020-07-21T16:51:26.298Z'
+modified: '2020-08-04T21:51:10.135Z'
 ---
 
+
+
+
 # 3 Materials - Algorithms
+
+scikit learn
+keras
+computer
+code for dataaug
+code for emsc
+code for sav gol
+python versoin....
+spectra + perkeinelmeyer...
+
+
+
+
 Workflow - Pipeline
 * Preprocessing
   * Scaleing
@@ -30,36 +46,9 @@ _Nir spectra meassured over the instruments full range contain mostly uninformat
 PLS regression starts to overfitt the data quickly, as it finds highly correlated variables __by chance__ in the noisy regions of the spectra. To explain most of the variance  more latent variables are needed to account for the noise, thus overfitting occures.
 
 
-### pls variable selection
-
-
-
-Optimise the PLS regression using the full spectrum, for instance using cross-validation or prediction data to quantify its quality.
-Extract the regression coefficients form the best model.
-
- Each regression coefficient uniquely associates each wavelength with the response. 
- 
- A low absolute value of the regression coefficient means that specific wavelength has a low correlation with the quantity of interest.
-
-Discard the lowest correlation wavelengths according to some rule. These wavelengths are the ones that typically worsen the quality of the calibration model, therefore by discarding them effectively we expect to improve the metrics associated with our prediction or cross-validation.
-@ nirpy
-
-
-
-
-
 @nirpy
 
 
-### Elastic Net
-Elastic Net is a middle ground between Ridge Regression and Lasso Regression. The regularization term is a simple mix of both Ridge and Lasso’s regularization terms, and you can control the mix ratio r. When r = 0, Elastic Net is equivalent to Ridge Regression, and when r = 1, it is equivalent to Lasso Regression (see Equation 4-12).
-@handsonscikit
-
-![](@attachment/Clipboard_2020-06-11-18-31-10.png)
-
-
-
-https://nirpyresearch.com/pls-discriminant-analysis-binary-classification-python/ PLS-LDA
 
 
 ### Variable Selection with Elastic net
@@ -71,66 +60,40 @@ An alternative selection method based on an elastic net (EN) regression has been
 EN regression incorporates a penalty term to enforce variable selection and another penalty term to encourage grouping of coefficients for correlated variables.
 
 
-This paper reports a method for variable selection by using an EN regression prior to a second regression by using PLS, a 2‐step method termed EN‐PLS. [Using elastic net regression to perform spectrally relevant variable selection]
+__This paper reports a method for variable selection by using an EN regression prior to a second regression by using PLS, a 2‐step method termed EN‐PLS. [Using elastic net regression to perform spectrally relevant variable selection]__
 
-Unlike variable selection using the lasso, the sparsity of an EN regression is not constrained by the number of samples for a matrix that lacks full column rank, and a set of correlated variables can be selected as a group. 21
+Unlike variable selection using the lasso, the sparsity of an EN regression is not constrained by the number of samples for a matrix that lacks full column rank (more variables than samples), and a set of correlated variables can be selected as a group.
 
-
-
-
-[Using elastic net regression to perform spectrally relevant variable selection]
 
 
 (4) Although the accuracy of MLR is greatly increased by feature selection, MLR accuracy is still not better than the accuracy of full-spectrum PLS regression.
 
 (5) No combination of PLS regression and feature selection has led to a prediction accuracy close to that of non-linear methods, e.g., artificial neural network (ANN).
 
-_formular_
++++ en pls
 
-
-
-### Outlier Detection with PLS
-
-_The aim is to improve the models predictive power by removing datapoints which do not fit the models underlying distribution. This can be caused by meassurement erros, __or is an effect of a to small sample size__. Removing Outlier should be done with great care, with the idea in mind to keep as many datapoints as possible._
-
-Since we are working with labeld data for regression, 
-__pls cross decomposition__
-we can use the PLS algorithms ability to correlate X and y data to identify outliers and monitor MSE to observe their influence.
-
-
-
-### Leverage
-
-In chemometrics the leverage is a concept related to the Mahalanobis distance and is used to measure the influence of a sample in a model based on its similarity to the rest of the population. The Mahalanobis distance takes into account the correlations of the data set and is scale-invariant, i.e. not dependent on the scale of measurements.
-The leverage of a sample is the distance to the centre of all samples relative to the variability in its particular direction
-[@EMEA2012]
-
-#### Metrics to define outliers with PLS regression
-
-
-__Q-residuals__ are derived from the error matrix. Q-residuals account for the variations in the data that are not explained by the model as built.
-
-An outlier is a point that does not follow the general trend of most (or all) other points. That means that for any given model, an outlier will have large Q-residual when compared to the corresponding residuals of the other points.
-
-Q-residuals are calculated in practice by taking the sum of squares of each row of the error matrix. Python code to calculate error matrices and Q-residuals is below.
-@nirpy - pls out
-
-
-__Hotelling’s T-squared__ is the second important metric to detect outliers. While Q-residuals look at the variations that are not explained by the model, T-squared look at the variations within the model itself. A measure of how good is a sample within the model is given by the scores. Low scores mean very good fit. Hotelling’s T-squared can be intuitively thought as a distance of each sample from the ‘ideal’ zero-score situation of perfect fit.
 
 
 ## Regression
 
+### PLS regression
+
+verry effective, on highly correlated data with more features than samples.
+
 ### Regression enet-PLS
 
-### Regression CV PLS
+has the advantage of varaibles selected with l1 and l2 norm. creating a sparse set of variables prior to dimension reduction with pls. The advantage is that less noise gets incoperated in the latent variables.
 
 ### Regression enet
+Elastic net can also be used to predict samples, though it comes not close to the predictability of PLS regression achived by maximizing the explained variance $Y$ in $X$ multidimensional space.
 
 ### Regression ConvNet
+Deep Neural Networks with convolutional layers, used for extracting features from visual data, feed the fully connected layers with their many weights, trying to minimize the training errors, each iteration.
+
+ As the network gets optimised the weights in the convolutional layers get updated as well performing preprocessing steps, with similar results to known techniques as MSC and SavGol.
 
 
-## Validation
+# Validation
 
 https://scikit-learn.org/stable/modules/learning_curve.html
 
@@ -227,9 +190,13 @@ $$\operatorname{MSEP}=\frac{1}{q}\sum_{i=n+1}^{n+q}(Y_i-\hat{Y_i})^2$$
 
 #### Huber loss
 
-In statistics, the Huber loss is a loss function used in robust regression, that is less sensitive to outliers in data than the squared error loss.
+In statistics, Huber loss is a robust estimator to determine the location parameter of a normally distributed population. It is also a frequently used loss function in machine learning and robust regression.
+
+The robustness is achieved by scaling down large values, starting at $k$, that are seen as outliers to cut their quadratic influce.
+
 
 The Huber loss function describes the penalty incurred by an estimation procedure f. Huber (1964) defines the loss function piecewise by[1]
+
 
 ```latex
 L_\delta (a) = \begin{cases}

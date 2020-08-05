@@ -1,9 +1,8 @@
 ---
-favorited: true
 tags: [masterarbeit]
 title: 5 Discussion
 created: '2020-06-17T14:40:00.427Z'
-modified: '2020-07-21T17:13:59.355Z'
+modified: '2020-07-31T14:33:36.096Z'
 ---
 
 # 5 Discussion

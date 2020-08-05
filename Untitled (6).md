@@ -1,8 +1,9 @@
 ---
+deleted: true
 tags: [masterarbeit]
 title: Untitled
 created: '2020-07-12T20:18:49.396Z'
-modified: '2020-07-12T20:18:50.677Z'
+modified: '2020-07-27T21:29:15.557Z'
 ---
 
 # 
