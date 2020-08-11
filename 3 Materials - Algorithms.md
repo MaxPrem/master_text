@@ -3,7 +3,7 @@ attachments: [Clipboard_2020-06-23-14-14-50.png]
 tags: [masterarbeit]
 title: 3 Materials - Algorithms
 created: '2020-06-11T16:53:48.871Z'
-modified: '2020-08-04T21:51:10.135Z'
+modified: '2020-08-06T18:14:45.120Z'
 ---
 
 
@@ -25,16 +25,16 @@ spectra + perkeinelmeyer...
 
 Workflow - Pipeline
 * Preprocessing
-  * Scaleing
+  * Scaling
   * EMSC scatter correction
   * Savgol Smoothing
   * Enet Variable Selection
-    * cross-validated regulraization optimization
+    * cross-validated regularization optimization
 
 * PLS Variable Selection
   * greedy variable selection
 * Outlier Detection
-  * pls outlier Detectin
+  * pls outlier Detection
 * Regression
   * PLS regression
 
@@ -42,8 +42,8 @@ Workflow - Pipeline
 
 
 
-_Nir spectra meassured over the instruments full range contain mostly uninformative and highly correlated variables. Performing variable selection before PLS regression, results in a more robust models with fewer PLS components required. 
-PLS regression starts to overfitt the data quickly, as it finds highly correlated variables __by chance__ in the noisy regions of the spectra. To explain most of the variance  more latent variables are needed to account for the noise, thus overfitting occures.
+_Nir spectra measured over the instruments full range contain mostly uninformative and highly correlated variables. Performing variable selection before PLS regression, results in a more robust model with fewer PLS components required.
+PLS regression starts to overfit the data quickly, as it finds highly correlated variables __by chance__ in the noisy regions of the spectra. To explain most of the variance  more latent variables are needed to account for the noise, thus overfitting occurs.
 
 
 @nirpy
@@ -68,7 +68,7 @@ Unlike variable selection using the lasso, the sparsity of an EN regression is n
 
 (4) Although the accuracy of MLR is greatly increased by feature selection, MLR accuracy is still not better than the accuracy of full-spectrum PLS regression.
 
-(5) No combination of PLS regression and feature selection has led to a prediction accuracy close to that of non-linear methods, e.g., artificial neural network (ANN).
+(5) No combination of PLS regression and feature selection has led to a prediction accuracy close to that of non-linear methods, e.g., artificial neural networks (ANN).
 
 +++ en pls
 
@@ -78,14 +78,14 @@ Unlike variable selection using the lasso, the sparsity of an EN regression is n
 
 ### PLS regression
 
-verry effective, on highly correlated data with more features than samples.
+very effective, on highly correlated data with more features than samples.
 
 ### Regression enet-PLS
 
-has the advantage of varaibles selected with l1 and l2 norm. creating a sparse set of variables prior to dimension reduction with pls. The advantage is that less noise gets incoperated in the latent variables.
+has the advantage of variables selected with l1 and l2 norm. creating a sparse set of variables prior to dimension reduction with pls. The advantage is that less noise gets incorporated in the latent variables.
 
 ### Regression enet
-Elastic net can also be used to predict samples, though it comes not close to the predictability of PLS regression achived by maximizing the explained variance $Y$ in $X$ multidimensional space.
+Elastic net can also be used to predict samples, though it comes not close to the predictability of PLS regression achieved by maximizing the explained variance $Y$ in $X$ multidimensional space.
 
 ### Regression ConvNet
 Deep Neural Networks with convolutional layers, used for extracting features from visual data, feed the fully connected layers with their many weights, trying to minimize the training errors, each iteration.
@@ -117,12 +117,11 @@ $$
 $$
 
 Y = NIRS predicted value
-y = reference method value 
+y = reference method value
 n = number of samples
 
-@[]
 
-## SEC 
+## SEC
 Standard error of estimate (SEE), also termed standard error of calibration (SEC).
 
 A statistic measuring the difference between the NIRS procedure and reference method quantitative analyte values of the calibration set. [@EMEA2012]
@@ -131,7 +130,7 @@ $$
 \mathrm{SEC}=\sqrt{\frac{\sum\left(X_{i}-Y_{i}\right)^{2}}{(N-p-1)}}
 $$
 
-MLR: number of wavelenghts
+MLR: number of wavelengths
 PLS/PCR: number of principal components
 ANN: number of trainable weights or notes in final layer
 
@@ -158,7 +157,7 @@ $$
 
 Ycv = NIRS predicted value
 ycv = reference method value
-n = number of samples 
+n = number of samples
 
 ## SEP - Standard Error of Prediction
 
@@ -175,14 +174,14 @@ $$
 REP =\sqrt{\frac{\sum_{i=1}^{n}\left(SD\right)^{}}{SEC}}
 $$
 
-### Mean squared error 
+### Mean squared error
 <https://en.wikipedia.org/wiki/Mean_squared_error>
 
 In statistics, the mean squared error (MSE) or mean squared deviation (MSD) of an estimator measures the average of the squares of the errors—that is, the average squared difference between the estimated values and the actual value.
 
 $$\operatorname{MSE}=\frac{1}{n}\sum_{i=1}^n(Y_i-\hat{Y_i})^2$$
 
-The MSE can also be computed on ''q ''data points that were not used in estimating the model, either because they were held back for this purpose or because these data have been newly obtained.  The MSE is often called the mean squared prediction (MSEP) error on test data or mean squared error of cross validataion (MSECV), when the held out data was obtained by crossvalidation.
+The MSE can also be computed on ''q ''data points that were not used in estimating the model, either because they were held back for this purpose or because these data have been newly obtained.  The MSE is often called the mean squared prediction (MSEP) error on test data or mean squared error of cross validation (MSECV), when the held out data was obtained by crossvalidation.
 
 $$\operatorname{MSEP}=\frac{1}{q}\sum_{i=n+1}^{n+q}(Y_i-\hat{Y_i})^2$$
 
@@ -192,7 +191,7 @@ $$\operatorname{MSEP}=\frac{1}{q}\sum_{i=n+1}^{n+q}(Y_i-\hat{Y_i})^2$$
 
 In statistics, Huber loss is a robust estimator to determine the location parameter of a normally distributed population. It is also a frequently used loss function in machine learning and robust regression.
 
-The robustness is achieved by scaling down large values, starting at $k$, that are seen as outliers to cut their quadratic influce.
+The robustness is achieved by scaling down large values, starting at $k$, that are seen as outliers to cut their quadratic influence.
 
 
 The Huber loss function describes the penalty incurred by an estimation procedure f. Huber (1964) defines the loss function piecewise by[1]
@@ -210,8 +209,8 @@ L_\delta (a) = \begin{cases}
 
 <img src=@attachment/Clipboard_2020-06-23-14-14-50.png width="200">
 
-This function is quadratic for small values of $a$, and linear for large values, with equal values and slopes of the different sections at the two points where $|a| = \delta$. The variable $a$ often refers to the residuals, that is to the difference between the observed and predicted values $a = y - f(x)$, so the former can be expanded to 
- 
+This function is quadratic for small values of $a$, and linear for large values, with equal values and slopes of the different sections at the two points where $|a| = \delta$. The variable $a$ often refers to the residuals, that is to the difference between the observed and predicted values $a = y - f(x)$, so the former can be expanded to
+
  [Huber, Peter J. (1964). "Robust Estimation of a Location Parameter". Annals of Statistics. 53 (1): 73–101. doi:10.1214/aoms/1177703732. JSTOR 2238020.]
 
 ```latex

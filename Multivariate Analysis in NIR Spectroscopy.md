@@ -4,7 +4,7 @@ pinned: true
 tags: [masterarbeit]
 title: Multivariate Analysis in NIR Spectroscopy
 created: '2020-06-09T09:39:07.203Z'
-modified: '2020-08-04T15:51:35.361Z'
+modified: '2020-08-06T17:52:12.406Z'
 ---
 
 # Multivariate Analysis in NIR Spectroscopy 
@@ -23,7 +23,9 @@ nir spectra of 80 samples from luzerne
 
 ### Results and Conclusion
 
+## main paper, problems, views
 
+overview.. wo wann was.
 
 ----
 ### Summary NIR Chemometrics
@@ -31,66 +33,66 @@ nir spectra of 80 samples from luzerne
 Near-infrared spectroscopy (NIRS) is a high-throughput, low-cost, solvent-free, and nondestructive analytical tool. 
 
 
-In Chemoetrics machinelearning and signal transformation methods are applied to process and correlate spectra (or other instrumental data) with measureable phisical properties and sample qualities, to gain insights and relevant information. 
+In Chemometrics machine learning and signal transformation methods are applied to process and correlate spectra (or other instrumental data) with measurable physical properties and sample qualities, to gain insights and relevant information. 
 
 
 ## 1 Introduction
 
-The aim of my thesis is to develop state of the art workflows and tools for the analysis of NIR spectra for the institute of animal nutrtion - TTE Boku. 
+The aim of my thesis is to develop state of the art workflows and tools for the analysis of NIR spectra for the institute of animal nutrition - TTE Boku. 
 
-The goal is to obtain robust regression models on __lab-meassurements vs. NIR spectra__,  to predict spectra of unknown samples confidently.
+The goal is to obtain robust regression models on __lab-measurements vs. NIR spectra__,  to predict spectra of unknown samples confidently.
 
-* Rashmon: the multiplicitoy of good models;
+* Rashomon: the multiplicity of good models;
 * Occam: the conflict between simplicity and accuracy;
 * Bellman: dimensionality curse or blessing;
 [@Breiman2001]
 
-Unfortonately, in prediction, accuracy and simplicity (interpretability are in conflict. 
+Unfortunately, in prediction, accuracy and simplicity (interpretability are in conflict. 
 
-*the Occam Dilemma)accuray genreally requires more complex predictoin methods. Simple and inerpretable models do note make the most accuraet predictors.
+*the Occam Dilemma)accuracy generally requires more complex prediction methods. Simple and interpretable models do note make the most accurate predictors.
 
 If the goal is interpretability, gaining information about the model , or accuracy on the relation between predictors and response variables.
 
 For this task two workflows were developed, 
-* a classical linear model approach combining regularized regression and dimension reductoin using ElasticNet and PartialLeastSquares regression with preceding variable selection(regularized reg.) and spectral preprocessing,
+* a classical linear model approach combining regularized regression and dimension reduction using ElasticNet and PartialLeastSquares regression with preceding variable selection(regularized reg.) and spectral preprocessing,
 
 * as well a nonlinear-regression model using Convolutional-Neural-Networks, a deep neural network architecture highly effective for analyzing visual data.
 
-* a data model approch combining regularized linear regression for variable selection and partial least square regression for dimension reduction on the selected wavelenghts to create a sparse model.
+* a data model approach combining regularized linear regression for variable selection and partial least square regression for dimension reduction on the selected wavelengths to create a sparse model.
 
 
 The deep learning approach will (always) result in a model with higher precision and more robustness to outliers, at the cost of a more complex model. 
-That is harder to interprete.
+That is harder to interpret.
 
 
-PLS regression, a much simpler algorithm prone to overfitting, can yield highly accurate models as well, though an effektive combination of spectral-preprocessing steps has to be found. The disadvantag of finding the optimal pre-treatments, can be outweighted by having a smaller and easier to interprete model, according to Occams's Razor.
+PLS regression, a much simpler algorithm prone to overfitting, can yield highly accurate models as well, though an effective combination of spectral-preprocessing steps has to be found. The disadvantage of finding the optimal pre-treatments, can be outweighed by having a smaller and easier to interpret model, according to Occam's Razor.
 
 _“All else being equal, simpler models should be favored over more complex ones.”_
 __"interpretation vs prediction"__
 
-Still, if no satisftying model can be obtained by PLS regressioun, due to bad data or other difficulties like finding an informative set of wavelenghts, one can try to make a prediction by using the self-optimizing Convolutional Neural Network.
+Still, if no satisfying model can be obtained by PLS regression, due to bad data or other difficulties like finding an informative set of wavelengths, one can try to make a prediction by using the self-optimizing Convolutional Neural Network.
 
 
 ## History & Background
 
-Initially described in the literature in 1939, NIRS was first applied to agricultural products in 1968 by Karl Norris and co-workers. They discoverd absorption bands from wheat kernels in the near infrared regions of spectra and concluded that specific regions can be used to predict protein content, moisture and other properties.
+Initially described in the literature in 1939, NIRS was first applied to agricultural products in 1968 by Karl Norris and co-workers. They discovered absorption bands from wheat kernels in the near infrared regions of spectra and concluded that specific regions can be used to predict protein content, moisture and other properties.
 
 [@whitepaper]
 
 ### Fourier TF NIR ft-NIR
 
-Fourier Transformation was already known in the beginning of the 18th century. Technical Innovation and progress in computer hardware, lead to the development of FT-NIR devices. Makeing it possible to simultaneously meassures a wide spectral range, resulting in faster meassurements with higher signal-noise ratio. Making NIR spectroscopy a feasible solution to a wide range of practical applications.
+Fourier Transformation was already known in the beginning of the 18th century. Technical Innovation and progress in computer hardware, lead to the development of FT-NIR devices. Making it possible to simultaneously measures a wide spectral range, resulting in faster measurements with higher signal-noise ratio. Making NIR spectroscopy a feasible solution to a wide range of practical applications.
 
 
-### Applications of NIR spectroscopty
+### Applications of NIR spectroscopy
 
 NIR spectroscopy found many applications in different fields
 
 
 
-* in biotechnology the use of  NIR spectra is investigated to montior media , metabolit content and biomass in fermentation processes [@Prakash2014].
+* in biotechnology the use of  NIR spectra is investigated to monitor media , metabolite content and biomass in fermentation processes [@Prakash2014].
 
-* in the medical field NIR is used for non invasive analysis like medical imaging to monitor brain function and other tissues. [@Sakudo2016]
+* in the medical field NIR is used for non-invasive analysis like medical imaging to monitor brain function and other tissues. [@Sakudo2016]
 
 * __In the agrifood sector, the potential of NIRS have been widely investigated, this is a very powerful tool that provides meaningful information about internal and external properties of fruits, such as sugar content, total acidity, pH, soluble solid content, dry matter, firmness, and bruises, to mention some [36].__
 
@@ -99,7 +101,7 @@ NIR spectroscopy found many applications in different fields
 
 ### Advantages
 
-When dealing with large sample sizes for chemical analysis or online process quality control, NIR spectroscopy can save resources and time. Assesing multible parameter without losing sample in one meassurement provides a big advantage over wet lab analysis.
+When dealing with large sample sizes for chemical analysis or online process quality control, NIR spectroscopy can save resources and time. Assessing multiple parameters without losing sample material in one measurement provides a big advantage over wet lab analysis.
  This gives producers and nutritionists better capabilities to monitor variability in crude materials and end products.
 
 ### Drawbacks
@@ -131,18 +133,21 @@ The model of the harmonic and anharmonic oscillator, which is shown in Figure 2.
 
 ![](@attachment/Clipboard_2020-06-09-12-17-28.png)
 [@nirwhite]
-### Meassuremnt principl
+### Measurement principle
 
 ### Measurement
 
 By orientation, NIR instruments are of two main types: reflectance and transmittance. For a reflectance NIR instrument, the detector is located on the same side of the sample as the light source so the NIR light is reflected off of the sample. For transmission instruments, the detector is placed on the opposite side of the sample from the light source so the light is transmitted through the sample (Figure 2).
 
 
-Nir spectra can be obtained by meassuring in reflectance or transmittance mode, depending on the location of the detector. Portable and labsized instruements mainly operate in diffuse reflectance mode to obtain spectra, as the sample simply needs to be placed on a surface for meassurement. The improvements of scatter correcting algorithms and computer hardware, further reduced meassured noise from physical properties as particle size, makeing diffuse reflectance a widely used method.
+Nir spectra can be obtained by measuring in reflectance or transmittance mode, depending on the location of the detector. Portable and lab sized instruments mainly operate in diffuse reflectance mode to obtain spectra, as the sample simply needs to be placed on a surface for measurement. The improvements of scatter correcting algorithms and computer hardware, further reduced measured noise from physical properties as particle size, making diffuse reflectance a widely used method.
 
 
 
 ![](@attachment/Clipboard_2020-06-09-12-28-31.png)
 [@nirwhite]
 
-Recording NIR spectra is fast an easy with modern instruments. Although the physical properties of the meassured sample like particle size or the surface of solids affect the scattering of the light beam. To obtain spectra of consistent quality it is best practice to standardise sample preparation procedures, like drying and grinding. [@nirwhite]
+Recording NIR spectra is fast and easy with modern instruments. Although the physical properties of the measured sample like particle size or the surface of solids affect the scattering of the light beam. To obtain spectra of consistent quality it is best practice to standardise sample preparation procedures, like drying and grinding. [@nirwhite]
+
+
+

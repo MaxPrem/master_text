@@ -2,7 +2,7 @@
 tags: [masterarbeit]
 title: 5 Discussion
 created: '2020-06-17T14:40:00.427Z'
-modified: '2020-07-31T14:33:36.096Z'
+modified: '2020-08-06T18:19:39.433Z'
 ---
 
 # 5 Discussion
@@ -15,29 +15,29 @@ A robust model will predict unseen data more accurately because it is less likel
 
 
 #### Methods to obtain robust models in NIR spectroscopy:
-* Spectral preprocessing: remove random Noise by smoothing, baseline by derivatisation
+* Spectral preprocessing: remove random Noise by smoothing, baseline by derivatization
 
-* Variable Selection: selecting a few bands from the spectra, can greatlty reduce the models complexity, bands containing noise from the atmospheric CO2 ... should always be removed.
+* Variable Selection: selecting a few bands from the spectra, can greatly reduce the models complexity, bands containing noise from the atmospheric CO2 ... should always be removed.
 
-* Outlier Removal: removing faulty spectra as well as meassurement erros,
+* Outlier Removal: removing faulty spectra as well as measurement errors,
 
 * Regularization:
  PLS regression with more than 2-3 components starts overfitting,
 
 * Elasticnet regression: self regularization 
 
-DeepNets: DropOut makes the neighboured weights more likely to have relevant information, test & val set help to prevent overfiting,
-backprogration ...
+DeepNets: DropOut makes the neighboured weights more likely to have relevant information, test & val set help to prevent overfitting,
+backpropagation ...
 
 ### Spectral preprocessing
 
 
 
-__Preprocessing__ is essential to reduce the variance caused by messurement effects as particle size and surface light scattering effects.
+__Preprocessing__ is essential to reduce the variance caused by measurement effects as particle size and surface light scattering effects.
 
-Piplene shows high variance regions in the spectra, cutting away...
+Pipeline shows high variance regions in the spectra, cutting away...
 
-picutures
+pictures
 * full spec
 * full spec 2nd deriv
 * cut spc 0 deriv prp
@@ -51,15 +51,15 @@ The effectiveness of variable selection greatly depends
 * the undertaken signal processing steps,
 * and the region of the spectra selected.
 
-If all the requirements are met, ElasticNet can reduce the number of wavelenghts used for calibration by 97-98%.
+If all the requirements are met, ElasticNet can reduce the number of wavelengths used for calibration by 97-98%.
 
 
 
-Varaible selection performs better on spectra without 2nd order Dev.
-as noise is ofen amplifeid
+Variable selection performs better on spectra without 2nd order Dev.
+as noise is over amplified
 
 
- it tends to select one variable form a correlated group. 
+ it tends to select one variable from a correlated group. 
 
 
 
@@ -77,7 +77,7 @@ A model for protein prediction in wheat with selected wavelengths can explain ov
 Models with variable selection do not always perform in higher R2 or lower RMSE when performing crossvalidation,
 
 (4) Although the accuracy of MLR is greatly increased by feature selection, MLR accuracy is still not better than the accuracy of full-spectrum PLS regression.
-(5) No combination of PLS regression and feature selection has led to a prediction accuracy close to that of non-linear methods, e.g., artificial neural network (ANN).
+(5) No combination of PLS regression and feature selection has led to a prediction accuracy close to that of non-linear methods, e.g., artificial neural networks (ANN).
 
 [Variable selection in near-infrared spectroscopy: Benchmarking of feature selection methods on biodiesel data]
 
@@ -87,4 +87,7 @@ When the EN regression is mean‐centered only, variables with large variance ar
 
 
 ##########################
+
+
+
 
